@@ -23,6 +23,8 @@ public class UpcomingReleases {
 
     public String getTitleName() { return titleName; }
 
+    public String getReleaseDate() { return releaseDate; }
+
     public String getStoreURL(){ return storeURL; }
 
     public String toText(){ return titleName + "\n" + releaseDate; }
