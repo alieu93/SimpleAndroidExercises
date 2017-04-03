@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,7 +16,7 @@ import java.util.ArrayList;
  * Created by Adam Lieu on 4/3/2017.
  */
 
-public class FragmentOne extends Fragment {
+public class FragmentThree extends Fragment {
     private static RecyclerView.Adapter adapter;
     private LinearLayoutManager layoutManager;
     private static RecyclerView recyclerView;
@@ -29,7 +28,7 @@ public class FragmentOne extends Fragment {
 
     int pastVisibleItems, visibleItemCount, totalItemCount;
 
-    public FragmentOne(){
+    public FragmentThree(){
 
     }
 
@@ -41,7 +40,7 @@ public class FragmentOne extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_one, container, false);
+        View view = inflater.inflate(R.layout.fragment_three, container, false);
         return view;
         //return inflater.inflate(R.layout.fragment_one, container, false);
     }
@@ -61,8 +60,8 @@ public class FragmentOne extends Fragment {
 
         /*UpcomingReleases newRelease = new UpcomingReleases("newGame",
                 "March 2017", "test.com", "test.com");*/
-        for(counter = 0; counter < 40; counter ++){
-            releases.add(new UpcomingReleases("newGame" + counter, "March 2017", "storeURL" + counter, "imgURL"));
+        for(counter = 0; counter < 5; counter ++){
+            releases.add(new UpcomingReleases("oldGame" + counter, "May 2017", "storeURL" + counter, "imgURL"));
         }
         adapter = new CustomAdapter(releases);
         recyclerView.setAdapter(adapter);
@@ -79,7 +78,7 @@ public class FragmentOne extends Fragment {
                         loading = false;
 
                         //Toast.makeText(FragmentOne.this, "Test!", Toast.LENGTH_SHORT).show();
-                        releases.add(new UpcomingReleases("newGame" + counter, "March 2017", "storeURL" + counter, "imgURL"));
+                        releases.add(new UpcomingReleases("oldGame" + counter, "May 2017", "storeURL" + counter, "imgURL"));
                         recyclerView.post(new Runnable() {
                             public void run(){
                                 adapter.notifyDataSetChanged();
@@ -92,5 +91,4 @@ public class FragmentOne extends Fragment {
             }
         });
     }
-
 }
